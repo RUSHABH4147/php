@@ -93,21 +93,21 @@
     <?php
     if(isset($_POST['Log']))
     {
+      
+      // it will access name attribute value
+      $username=$_POST['id'];
+      $password=$_POST['Password'];
+      
+      
+      // query for accepting id and password from database
+      $query="select * from candidate where Username='$username'";
+      
+      $result=mysqli_query($con,$query); // perform query
+      $row = mysqli_fetch_array($result); // fetch row from db 
+      if($username == $row['Username'] && password_verify($password , $row['pass']))//decrypting the password which is give by user at the time of login..
+      {
         session_start();
-               
-        // it will access name attribute value
-        $username=$_POST['id'];
-        $password=$_POST['Password'];
-
         $_SESSION["id"]=$username;
-        
-        // query for accepting id and password from database
-        $query="select Username,pass from candidate where Username='$username' and pass='$password'";
-
-        $result=mysqli_query($con,$query); // perform query
-        $row = mysqli_fetch_array($result); // fetch row from db 
-        if($username == $row['Username'] && $password == $row['pass'])
-        {
             header("Location:../examreg/Welcome.php");
         }
         else

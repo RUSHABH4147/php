@@ -79,62 +79,146 @@
       <img  class="reg1" src="reg1.svg" alt="reg">
     </div>
     <div class="col-sm " style=" margin-top: 15%" >
-    <form method="post" class="row g-3">
+ 
+<form class="row g-3 needs-validation" method="post" onsubmit=" return checkinputs()" novalidate>
   <div class="col-md-4">
-    <label for="validationDefault01" class="form-label">First name</label>
-    <input type="text" class="form-control"  name="nm" id="nm" required>
+    <label for="validationCustom01" class="form-label">First name</label>
+    <input type="text" class="form-control" name="nm" id="validationCustom01"  required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
   </div>
   <div class="col-md-4">
-    <label for="validationDefault02" class="form-label">Last name</label>
-    <input type="text" class="form-control" name="sname" id="sname" required>
+    <label for="validationCustom02" class="form-label">Last name</label>
+    <input type="text" class="form-control" name="sname" id="validationCustom02"  required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
   </div>
   <div class="col-md-4">
-    <label for="validationDefaultUsername" class="form-label">Username</label>
-    <div class="input-group">
-      <span class="input-group-text" id="inputGroupPrepend2">@</span>
-      <input type="text" class="form-control" name="id" id="id"  aria-describedby="inputGroupPrepend2" required>
+    <label for="validationCustomUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="text" class="form-control" name="id" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
     </div>
   </div>
   <div class="col-md-6">
-    <label for="validationDefault03" class="form-label">City</label>
-    <input type="text" class="form-control" id="city"  name="city" required>
+    <label for="validationCustom03" class="form-label">City</label>
+    <input type="text" class="form-control"  name="city" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
   </div>
   <div class="col-md-3">
-    <label for="validationDefault04" class="form-label">State</label>
-    <select class="form-select" id="state" name="state" required>
-      <option selected disabled >Choose...</option>
-      <option >Bihar</option>
-      <option>Maharashrta</option>
-      <option>U.P</option>
-      <option>Goa</option>
-
-
+    <label for="validationCustom04" class="form-label">State</label>
+    <select class="form-select" name="State"  id="validationCustom04" required>
+    <option selected disabled  value="">Choose...</option>
+      <option value="Bihar" name="State">Bihar</option>
+      <option value="Maharashrta" name="State">Maharashrta</option>
+      <option value="U.P" name="State">U.P</option>
+      <option value="Goa" name="State">Goa</option>
     </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
   </div>
   <div class="col-md-3">
-    <label for="validationDefault05" class="form-label">Zip</label>
-    <input type="number" class="form-control" id="zip" name="zip" required>
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input type="text" class="form-control" name="zip"  id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
   </div>
-  <div class="col-6" >
-    <label for="validationDefault02" class="form-label">Password</label>
-    <input type="password" class="form-control" name="Password" id="Password" required>
-  </div>
-  <div class="col-6" >
-    <label for="validationDefault02" class="form-label">check Password</label>
-    <input type="password" class="form-control"  required>
-  </div>
+  <div class="col-6">
+    <label for="validationCustom01" class="form-label">Password</label>
+    <input type="password" class="form-control password1"  id="pw1" name="Password"   required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please provide a valid password.
+    </div>
+    </div>
+    <div class="col-6">
+    <label for="validationCustom01" class="form-label">Password </label>
+    <input type="password" class="form-control password2"  id="pw2"  required>
+    
+    <!-- <div class="valid-feedback">
+      Looks good!
+    </div> -->
+    <div class="invalid-feedback">
+      Please provide a valid password.
+    </div>
+    </div>
+
   <div class="col-12">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-      <label class="form-check-label" for="invalidCheck2">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
         Agree to terms and conditions
       </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
     </div>
   </div>
   <div class="col-12">
     <button class="btn btn-primary" name="submit" id = "submit" type="submit">Register</button>
   </div>
 </form>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+ 
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+          //basic validation
+        var pw1 = document.getElementById("pw1");
+        var pw2 = document.getElementById("pw2");
+        function checkinputs() {
+            console.log("HHH");
+            const pw1value = pw1.value.trim();
+            const pw2value = pw2.value.trim();
+            if (pw1value == "") {
+                console.log("bb");
+                alert(" please fill all details");
+                pw1.style.borderColor = "red"
+                // pw1.focus();
+                return false;
+
+            }
+            if (pw1value == pw2value) {
+                alert("password created")
+
+            }
+            else if ( pw1value != pw2value) {
+                alert("password not matched ");
+                pw2.focus();
+                pw2.style.borderColor = "red"
+
+
+                return false
+            }
+            }</script>
     </div>
     
   </div>
@@ -150,13 +234,12 @@
                 $State=$_POST['State'];
                 $zip=$_POST['zip'];
                 $Password=$_POST['Password'];
+               // encrypt the pass word 
+                $enpass=password_hash($Password , PASSWORD_BCRYPT );
                 
-                // $date = date('d-m-y');
-                // date_default_timezone_set('Asia/Kolkata');
-                // $time = date(' h:i:s', time () );
-                // echo $date. "".$time;
+                
 
-                $query="INSERT INTO candidate(Fname, Lname , Username ,  city , Stat , Zip , pass) VALUES ('$nm' , '$snm' , '$id', '$city' , '$State' , '$zip' , '$Password')"; 
+                $query="INSERT INTO candidate(Fname, Lname , Username ,  city , Stat , Zip , pass) VALUES ('$nm' , '$snm' , '$id', '$city' , '$State' , '$zip' , '$enpass')"; 
          
                 if($con ->query($query))
                 {
