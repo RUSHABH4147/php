@@ -4,7 +4,7 @@
     
 }
 body{
-background-color: #fff6e8
+background-color: #eceae6
 
 
 }
@@ -27,8 +27,12 @@ margin-top: 4%;
     text-align: center;
 }
 .logoo{
-    color: #a54421;
+    color: #df521e;
 }
 #nav{
     padding: 0% !important ;
+}
+#ard-img-top{
+    width: 400px;
+    height: 400px;
 }
